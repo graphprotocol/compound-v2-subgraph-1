@@ -133,6 +133,8 @@ type AccountCToken @entity {
     # The following values are added by the JS Wrapper, and must be calculated with the most up
     # to date values based on the block delta for market.exchangeRate and market.borrowIndex
     # They do not need to be in the schema, but they will show up in the explorer playground
+    # NOTE: this a custom feature that The Graph implemented for our subgraph. It's not yet
+    # available to the public.
 
     # supplyBalanceUnderlying: BigDecimal!
     # FORMULA: supplyBalanceUnderlying = cTokenBalance * market.exchangeRate
