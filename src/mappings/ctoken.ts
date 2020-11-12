@@ -351,7 +351,7 @@ export function handleTransfer(event: Transfer): void {
   let amountUnderlying = market.exchangeRate.times(
     event.params.amount.toBigDecimal().div(cTokenDecimalsBD),
   )
-  let amountUnderylingTruncated = amountUnderlying.truncate(market.underlyingDecimals)
+  let amountUnderlyingTruncated = amountUnderlying.truncate(market.underlyingDecimals)
 
   // Checking if the tx is FROM the cToken contract (i.e. this will not run when minting)
   // If so, it is a mint, and we don't need to run these calculations
@@ -382,7 +382,7 @@ export function handleTransfer(event: Transfer): void {
     )
 
     cTokenStatsFrom.totalUnderlyingRedeemed = cTokenStatsFrom.totalUnderlyingRedeemed.plus(
-      amountUnderylingTruncated,
+      amountUnderlyingTruncated,
     )
     cTokenStatsFrom.save()
   }
@@ -418,7 +418,7 @@ export function handleTransfer(event: Transfer): void {
     )
 
     cTokenStatsTo.totalUnderlyingSupplied = cTokenStatsTo.totalUnderlyingSupplied.plus(
-      amountUnderylingTruncated,
+      amountUnderlyingTruncated,
     )
     cTokenStatsTo.save()
   }
