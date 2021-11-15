@@ -180,6 +180,7 @@ function getETHinUSD(blockNumber: i32): BigDecimal {
   let ethPriceInUSD = tryPrice.reverted
     ? zeroBD
     : tryPrice.value.toBigDecimal().div(mantissaFactorBD)
+
   return ethPriceInUSD
 }
 
